@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 10:56:49 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/10/12 13:22:11 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/10/12 13:25:58 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ Bureaucrat & Bureaucrat::operator=(Bureaucrat const & ref)
 
 void				Bureaucrat::incrementGrade( void )
 {
+	std::cout << "Incrementing bureaucrat " << _name << "'s grade " << _grade << " by 1\n";
 	if (this->_grade - 1 < 1)
 		throw (Bureaucrat::GradeTooHighException());
 	else
@@ -62,6 +63,7 @@ void				Bureaucrat::incrementGrade( void )
 
 void				Bureaucrat::decrementGrade( void )
 {
+	std::cout << "Decrementing bureaucrat " << _name << "'s grade " << _grade << " by 1\n";
 	if (this->_grade + 1 > 150)
 		throw (Bureaucrat::GradeTooLowException());
 	else
@@ -109,10 +111,10 @@ const char* Bureaucrat::Exception::what() const throw()
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Cannot get a grade < 1!");
+	return ("Cannot get a grade > 150!");
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Cannot get a grade > 150!");
+	return ("Cannot get a grade < 1!");
 };
