@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 10:56:53 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/10/12 12:23:08 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/10/12 13:20:07 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,6 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
-
-class BureaucratException : public std::exception
-{
-	public:
-		virtual const char* what() const throw(); //in "throw" we can tell which exception it can throw
-};
-
-class BureaucratExceptionGradeTooLow : public BureaucratException
-{
-	public:
-		virtual const char* what() const throw(); //in "throw" we can tell which exception it can throw
-};
-
-class BureaucratExceptionGradeTooHigh : public BureaucratException
-{
-	public:
-		virtual const char* what() const throw(); //in "throw" we can tell which exception it can throw
-};
 
 class Bureaucrat
 {
@@ -44,15 +26,34 @@ class Bureaucrat
 		Bureaucrat & operator=(Bureaucrat const & ref);
 
 		// Increment / Decrement grade
-		void				incrementGrade( Bureaucrat & ref );
-		void				decrementGrade( Bureaucrat & ref );
+		void				incrementGrade( void );
+		void				decrementGrade( void );
 
 		// Getters
 		const std::string	getName( void ) const;
-		const int			getGrade( void ) const;
+		int					getGrade( void ) const;
 
 		// Setters
 		void				setGrade( const int new_grade);
+
+		// Nested Exception classes:
+		class Exception : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+
+		class GradeTooLowException : public Bureaucrat::Exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+		
+		class GradeTooHighException : public Bureaucrat::Exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
 
 	private:
 		const std::string	_name;

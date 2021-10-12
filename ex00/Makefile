@@ -6,7 +6,7 @@
 #    By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/07 16:23:33 by ysoroko           #+#    #+#              #
-#    Updated: 2021/10/07 16:23:40 by ysoroko          ###   ########.fr        #
+#    Updated: 2021/10/12 13:05:26 by ysoroko          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,11 +15,7 @@
 NAME		=	ex00
 
 SRC			=	main.cpp \
-				Animal.cpp \
-				Cat.cpp \
-				Dog.cpp \
-				WrongAnimal.cpp \
-				WrongCat.cpp \
+				Bureaucrat.cpp
 
 OBJS		=	$(SRC:.cpp=.o)
 
