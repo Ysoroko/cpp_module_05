@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 10:56:49 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/10/12 13:25:58 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/10/12 13:35:21 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void				Bureaucrat::setGrade( const int new_grade)
 // << operator overload
 std::ostream & operator<<( std::ostream & o, Bureaucrat const & rhs)
 {
-	o << "Bureaucrat " << rhs.getName() << " has a grade " << rhs.getGrade() << std::endl;
+	o << "Bureaucrat " << rhs.getName() << " has a grade " << rhs.getGrade();
 	return (o);
 }
 

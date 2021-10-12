@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 10:56:36 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/10/12 13:30:32 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/10/12 13:35:41 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,7 @@ int main(void)
 	std::cout << std::endl;
 	std::cout << "IN/DECREMENT + \"<<\" overload:" << std::endl;
 	std::cout << "----------------------------" << std::endl;
-	Bureaucrat bob("Bob", 2);
-	try
-	{
-		bob.incrementGrade();
-	}
-	catch (Bureaucrat::Exception &e)
-	{
-		std::cout << e.what();
-	}
+	Bureaucrat bob("Bob", 1);
 	try
 	{
 		bob.decrementGrade();
@@ -76,6 +68,7 @@ int main(void)
 	{
 		std::cout << e.what();
 	}
+	// "<<" operator overload used
 	std::cout << bob;
 	std::cout << std::endl << std::endl;
 	//-------------------------------------------------------
