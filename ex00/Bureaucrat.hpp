@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 10:56:53 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/10/12 12:07:15 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/10/12 12:23:08 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,29 +18,19 @@
 class BureaucratException : public std::exception
 {
 	public:
-		virtual const char* what() const throw()
-		{
-			return ("BureaucratException");
-			//in "throw" we can tell which exception it can throw
-		}
+		virtual const char* what() const throw(); //in "throw" we can tell which exception it can throw
 };
 
 class BureaucratExceptionGradeTooLow : public BureaucratException
 {
 	public:
-		virtual const char* what() const throw() //in "throw" we can tell which exception it can throw
-		{
-			return ("Cannot get a grade < 1!");
-		} 
+		virtual const char* what() const throw(); //in "throw" we can tell which exception it can throw
 };
 
 class BureaucratExceptionGradeTooHigh : public BureaucratException
 {
 	public:
-		virtual const char* what() const throw() //in "throw" we can tell which exception it can throw
-		{
-			return ("Cannot get a grade > 150!");
-		}
+		virtual const char* what() const throw(); //in "throw" we can tell which exception it can throw
 };
 
 class Bureaucrat

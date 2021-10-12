@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 10:56:49 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/10/12 12:18:10 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/10/12 12:22:27 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,3 +100,18 @@ std::ostream & operator<<( std::ostream & o, Bureaucrat const & rhs)
 
 
 // ---------------------- BureaucratException Functions -----------------------
+
+const char* BureaucratException::what() const throw()
+{
+	return ("BureaucratException");
+}
+
+const char* BureaucratExceptionGradeTooLow::what() const throw()
+{
+	return ("Cannot get a grade < 1!");
+}
+
+const char* BureaucratExceptionGradeTooHigh::what() const throw()
+{
+	return ("Cannot get a grade > 150!");
+};
