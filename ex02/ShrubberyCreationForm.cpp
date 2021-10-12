@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 14:46:33 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/10/12 15:26:31 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/10/12 15:43:43 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ std::string	ShrubberyCreationForm::getTarget( void ) const
 }
 
 
-void ShrubberyCreationForm::execute()
+void ShrubberyCreationForm::execute(Bureaucrat const & executor)
 {
 	std::string	tree = 
 "     ccee88oo          \n"
@@ -63,12 +63,18 @@ void ShrubberyCreationForm::execute()
 "         |||\\/        \n"
 "         |||||         \n"
 "  .....\\//||||\\....  \n";
-	std::ofstream	ofs(this->_target);
-	if (!ofs.is_open())
+
+	if (executor.getGrade() > this->getGradeToExecute() || this->getSigned() == false)
+		throw (Form::GradeTooLowException());
+	else
 	{
-		std::cout << "Coulnd't open the output file" << std::endl;
-		return ;
+		std::ofstream	ofs(this->_target);
+		if (!ofs.is_open())
+		{
+			std::cout << "Coulnd't open the output file" << std::endl;
+			return ;
+		}
+		ofs << tree;
+		std::cout << executor.getName() << " just drew an ASCII tree in " << this->_target << std::endl;
 	}
-	ofs << tree;
-	std::cout << "Shrubbery just drew an ASCII tree in " << this->_target << std::endl;
 }

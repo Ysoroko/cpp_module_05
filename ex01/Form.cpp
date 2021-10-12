@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 13:36:51 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/10/12 14:32:04 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/10/12 15:42:56 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,10 @@ void	Form::be_signed(Bureaucrat & ref)
 	int	grade = ref.getGrade();
 
 	if (grade > _grade_to_sign)
+	{
 		throw (Form::GradeTooLowException());
+		return ;
+	}
 	_signed = true;
+	std::cout << *this << " was just signed by the bureaucrat " << ref.getName() << " with a grade " << ref.getGrade() << std::endl;
 }

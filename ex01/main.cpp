@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 10:56:36 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/10/12 15:17:46 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/10/12 15:45:43 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,9 @@ int	main(void)
 	std::cout << b << " just showed its current status" << std::endl;
 	std::cout << std::endl << std::endl;
 
+	std::cout << std::endl;
+	std::cout << "DESTRUCTORS:" << std::endl;
+	std::cout << "----------------------------" << std::endl;
 	return (0);
 	//-------------------------------------------------------	
 }
