@@ -6,12 +6,13 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 14:46:33 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/10/12 15:57:54 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/10/13 10:13:15 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 #include <cstdlib>
+#include <ctime>
 
 RobotomyRequestForm::RobotomyRequestForm() : Form("Default Robo Parent", 72, 45)
 {
@@ -57,7 +58,12 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor)
 {
 	if (executor.getGrade() > this->getGradeToExecute() || this->getSigned() == false)
 		throw (Form::GradeTooLowException());
-	
-	
+	int success = std::rand() % 2; // Random number between 0 and 1
+	if (success == 1)
+		std::cout << executor.getName() << " sucessfully robotomized " << this->_target << std::endl;
+	else
+	{
+		std::cout << executor.getName() << " failed to robotomize " << this->_target << std::endl;
+		throw (RobotomyRequestForm::FailureException());
+	}
 }
-

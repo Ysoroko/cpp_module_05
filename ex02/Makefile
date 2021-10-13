@@ -6,7 +6,7 @@
 #    By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/07 16:23:33 by ysoroko           #+#    #+#              #
-#    Updated: 2021/10/12 15:27:15 by ysoroko          ###   ########.fr        #
+#    Updated: 2021/10/13 09:52:48 by ysoroko          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRC			=	main.cpp \
 				Bureaucrat.cpp \
 				Form.cpp \
 				ShrubberyCreationForm.cpp \
+				RobotomyRequestForm.cpp \
 
 OBJS		=	$(SRC:.cpp=.o)
 

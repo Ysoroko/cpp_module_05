@@ -6,16 +6,19 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 10:56:36 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/10/12 15:45:37 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/10/13 10:12:18 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int	main(void)
 {
+
+	std::srand(std::time(0)); // common practice to seed the pseudo-random number generator
 	// Constructors
 	std::cout << std::endl;
 	std::cout << "CONSTRUCTING:" << std::endl;
@@ -23,7 +26,8 @@ int	main(void)
 
 	Bureaucrat				bob("Bob", 1);
 	Bureaucrat				bill("Bill", 142);
-	ShrubberyCreationForm	shrub("shrub"); 
+	ShrubberyCreationForm	shrub("shrub");
+	RobotomyRequestForm		robo("robo");
 
 	// Executing
 	// ShrubberyCreationForm : sign 145, exec 137
@@ -34,6 +38,7 @@ int	main(void)
 	std::cout << "----------------------------" << std::endl;
 
 	std::cout << "UNSIGNED:" << std::endl;
+	std::cout << "ShrubberyCreationForm:" << std::endl;
 	try
 	{
 		shrub.execute(bob);
@@ -45,8 +50,37 @@ int	main(void)
 	shrub.be_signed(bob);
 	shrub.execute(bob);
 	std::cout << std::endl << std::endl;
+	//-----------------------------------------------------
+	std::cout << "UNSIGNED:" << std::endl;
+	std::cout << "RobotomyRequestForm:" << std::endl << std::endl;
+	try
+	{
+		robo.execute(bob);
+	}
+	catch(Form::Exception &e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	robo.be_signed(bob);
+	std::cout << std::endl;
+	std::cout << "50% Failure chance:" << std::endl << std::endl;
+	try
+	{
+		robo.execute(bob);
+		robo.execute(bob);
+		robo.execute(bob);
+		robo.execute(bob);
+		robo.execute(bob);
+	}
+	catch(Form::Exception &e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << std::endl << std::endl;
+
 
 	std::cout << "GRADE TO EXE TOO HIGH:" << std::endl;
+	std::cout << "----------------------------" << std::endl;
 	try
 	{
 		shrub.execute(bill);
