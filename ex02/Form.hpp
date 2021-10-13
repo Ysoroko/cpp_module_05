@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 13:36:31 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/10/12 15:35:25 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/10/13 10:54:44 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,17 @@ class Form
 				virtual const char* what() const throw();
 		};
 
+		class UnsignedFormException : public Form::Exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+
 		// Functions
 		void	be_signed(Bureaucrat & ref);
 
 		//Ex02
-		virtual void execute(Bureaucrat const & executor) = 0;
+		virtual void execute(Bureaucrat const & executor) const = 0;
 
 	private:
 		const std::string	_name;

@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 10:56:53 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/10/12 14:17:39 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/10/13 10:48:25 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,9 @@ class Bureaucrat
 
 		// ex01
 		void signForm(Form & ref);
+
+		// ex02
+		void executeForm(Form const & form);
 
 	private:
 		const std::string	_name;

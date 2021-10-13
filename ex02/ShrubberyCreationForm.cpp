@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 14:46:33 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/10/12 15:43:43 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/10/13 11:05:50 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,24 @@
 ShrubberyCreationForm::ShrubberyCreationForm() : Form("Default Shrub Parent", 145, 137)
 {
 	this->_target = "Default";
-	std::cout << *this << " has beed defaultly constructed" << std::endl;
+	std::cout << "Shrubbery Creation " << *this << " has beed defaultly constructed" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form("Shrub Parent", 145, 137)
 {
 	this->_target = target;
-	std::cout << *this << " has beed constructed" << std::endl;
+	std::cout << "Shrubbery Creation " << *this << " has beed constructed" << std::endl;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-	std::cout << *this << " has been destroyed" << std::endl;
+	std::cout << "Shrubbery Creation " << *this << " has been destroyed" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const & ref) : Form(ref.getName(), ref.getGradeToSign(), ref.getGradeToExecute())
 {
 	this->_target = ref.getTarget();
-	std::cout << *this << " has beed constructed" << std::endl;
+	std::cout << "Shrubbery Creation " << *this << " has beed constructed from a copy" << std::endl;
 }
 
 ShrubberyCreationForm & ShrubberyCreationForm::operator=(ShrubberyCreationForm const & ref)
@@ -49,7 +49,7 @@ std::string	ShrubberyCreationForm::getTarget( void ) const
 }
 
 
-void ShrubberyCreationForm::execute(Bureaucrat const & executor)
+void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	std::string	tree = 
 "     ccee88oo          \n"
@@ -64,7 +64,9 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor)
 "         |||||         \n"
 "  .....\\//||||\\....  \n";
 
-	if (executor.getGrade() > this->getGradeToExecute() || this->getSigned() == false)
+	if (this->getSigned() == false)
+		throw (Form::UnsignedFormException());
+	else if (executor.getGrade() > this->getGradeToExecute())
 		throw (Form::GradeTooLowException());
 	else
 	{
@@ -75,6 +77,5 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor)
 			return ;
 		}
 		ofs << tree;
-		std::cout << executor.getName() << " just drew an ASCII tree in " << this->_target << std::endl;
 	}
 }

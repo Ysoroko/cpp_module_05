@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 10:56:49 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/10/12 14:39:58 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/10/13 11:06:42 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,5 +131,20 @@ void Bureaucrat::signForm(Form & ref)
 	catch (Form::Exception &e)
 	{
 		std::cout << "Bureaucrat " << this->_name << " with a grade " << this->_grade << " cannot sign " << ref << " because " << e.what() << std::endl;
+	}
+}
+
+// -------------------------------- EX02 ---------------------------------
+
+void Bureaucrat::executeForm(Form const & form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << this->_name << " sucesfully executed " << form << std::endl;
+	}
+	catch (Form::Exception &e)
+	{
+		std::cout << e.what() << std::endl;
 	}
 }

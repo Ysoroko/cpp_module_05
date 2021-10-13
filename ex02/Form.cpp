@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 13:36:51 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/10/12 15:41:48 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/10/13 10:46:34 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,11 @@ const char* Form::GradeTooLowException::what() const throw()
 const char* Form::GradeTooHighException::what() const throw()
 {
 	return ("the grade is too high");
+};
+
+const char* Form::UnsignedFormException::what() const throw()
+{
+	return ("Cannot execute an unsigned form");
 };
 
 std::ostream & operator<<( std::ostream & o, Form const & rhs)

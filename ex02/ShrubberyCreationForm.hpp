@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 14:46:05 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/10/12 15:31:53 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/10/13 10:58:33 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class ShrubberyCreationForm : public Form
 		
 		std::string	getTarget( void ) const;
 		
-		void execute(Bureaucrat const & executor);
+		void execute(Bureaucrat const & executor) const;
 	private:
 		std::string	_target;
 };

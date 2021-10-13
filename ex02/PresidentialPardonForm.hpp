@@ -1,40 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 14:46:05 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/10/13 10:58:27 by ysoroko          ###   ########.fr       */
+/*   Created: 2021/10/13 10:17:56 by ysoroko           #+#    #+#             */
+/*   Updated: 2021/10/13 10:58:48 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBOTOMYREQUESTFORM_HPP
-# define ROBOTOMYREQUESTFORM_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+# define PRESIDENTIALPARDONFORM_HPP
 
 #include "Form.hpp"
 
 class Form;
 
-class RobotomyRequestForm : public Form
+class PresidentialPardonForm : public Form
 {
 	public:
-		RobotomyRequestForm();
-		RobotomyRequestForm(std::string target);
-		~RobotomyRequestForm();
-		RobotomyRequestForm(RobotomyRequestForm const & ref);
-		RobotomyRequestForm & operator=(RobotomyRequestForm const & ref);
+		PresidentialPardonForm();
+		PresidentialPardonForm(std::string target);
+		~PresidentialPardonForm();
+		PresidentialPardonForm(PresidentialPardonForm const & ref);
+		PresidentialPardonForm & operator=(PresidentialPardonForm const & ref);
 		
 		std::string	getTarget( void ) const;
+		
 		void execute(Bureaucrat const & executor) const;
-
-		// Failure
-		class FailureException : public Form::Exception
-		{
-			public:
-				virtual const char* what() const throw();
-		};
 	private:
 		std::string	_target;
 };
