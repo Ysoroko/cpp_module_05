@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 11:29:27 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/10/13 11:45:11 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/10/13 13:25:41 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,13 @@ class Intern
 
 		// Subject required method:
 		Form *makeForm(std::string form_name, std::string form_target);
+
+		// Exception:
+		class Exception : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
 };
 
 #endif

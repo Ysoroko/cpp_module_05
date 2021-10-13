@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 13:36:31 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/10/13 10:54:44 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/10/13 13:33:20 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Form
 	public:
 		// Constructors / destructor / '=' overload
 		Form();
-		~Form();
+		virtual ~Form();
 		Form(std::string name, int grade_to_sign, int grade_to_execute);
 		Form(Form const & ref);
 		Form & operator=(Form const & ref);

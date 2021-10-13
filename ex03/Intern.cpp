@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 11:29:44 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/10/13 12:02:07 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/10/13 13:29:11 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,18 +69,15 @@ Form *Intern::makeForm(std::string form_name, std::string form_target)
 		if (form_name == msg[i])
 			ret = fct[i](form_target);
 	}
-	std::cout << "Intern creates " << ret << std::endl;
+	if (ret)
+		std::cout << "Intern creates " << *ret << std::endl;
+	else
+		throw (Intern::Exception());
 	return (ret);
 }
 
-
-// void	(Karen::*fct[4])(void) = { &Karen::debug, &Karen::info, &Karen::warning, &Karen::error };
-// 	//void (*fct[4])() = {&(Karen::debug()), info(), warning(), error()};
-// 	std::string	msg[4] = {"debug", "info", "warning", "error"};
-// 	for (int i = 0; i < 4; i++)
-// 	{
-// 		if (msg[i] == level)
-// 		{
-// 			(this->*(fct[i]))();
-// 		}
-// 	}
+// Exception:
+const char* Intern::Exception::what() const throw()
+{
+	return ("Unknown Form exception");
+}

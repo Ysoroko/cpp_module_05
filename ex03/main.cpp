@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 10:56:36 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/10/13 12:05:02 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/10/13 13:31:06 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,22 +40,32 @@ int	main(void)
 	std::cout << "----------------------------" << std::endl;
 	// Robo:
 	robo_form = intern.makeForm("robotomy request", "robo");
-	std::cout << *robo_form << " was just created " << std::endl;
+	std::cout << *robo_form << " was just created " << std::endl << std::endl;
 
 	// President:
 	president_form = intern.makeForm("presidential pardon", "president");
-	std::cout << *president_form << " was just created " << std::endl;
+	std::cout << *president_form << " was just created " << std::endl << std::endl;
 
 	// Shrub:
 	shrub_form = intern.makeForm("shrubbery creation", "shrub");
-	std::cout << *shrub_form << " was just created " << std::endl;
+	std::cout << *shrub_form << " was just created " << std::endl << std::endl;
 
 	// Unknown:
-	unknown_form = intern.makeForm("driving licence", "drive");
-	std::cout << *unknown_form << " was just created " << std::endl;
-
+	try
+	{
+		unknown_form = intern.makeForm("driving licence", "drive");
+		std::cout << *unknown_form << " was just created " << std::endl << std::endl;
+	}
+	catch (Intern::Exception &e)
+	{
+		std::cout << e.what() << std::endl << std::endl;
+	}
 	std::cout << "DESTRUCTORS:" << std::endl;
 	std::cout << "----------------------------" << std::endl;
+	delete robo_form;
+	delete shrub_form;
+	delete president_form;
+	delete unknown_form;
 	return (0);
 	//-------------------------------------------------------	
 }

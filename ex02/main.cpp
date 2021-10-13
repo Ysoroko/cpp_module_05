@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 10:56:36 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/10/13 10:53:53 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/10/13 11:54:57 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	main(void)
 	ShrubberyCreationForm	shrub("shrub");
 	RobotomyRequestForm		robo("robo");
 	PresidentialPardonForm	president("president");
+	std::cout << std::endl << std::endl;
 	//-----------------------------------------------------
 
 
@@ -38,7 +39,6 @@ int	main(void)
 	// RobotomyRequestForm sign 72, exec 45
 	// PresidentialPardonForm sign 25, exec 5
 
-	std::cout << std::endl;
 	std::cout << "SHRUBBERY CREATION FORM:" << std::endl;
 	std::cout << "----------------------------" << std::endl;
 
